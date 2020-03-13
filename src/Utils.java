@@ -86,4 +86,22 @@ public class Utils {
         
       }
     
+    public static ArrayList<Words> reverseOrderArrayList(ArrayList<Words> words) {
+    	
+        ArrayList<Words> b = new ArrayList<Words>();
+        
+        int n = words.size();
+        int j = n;
+        
+        for (int i = 0; i < n; i++) {
+        	
+          b.add(words.get(j-1));
+          j = j - 1;
+          
+        }
+        
+        return b;
+        
+      }
+    
 }
