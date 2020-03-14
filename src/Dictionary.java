@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -605,4 +606,20 @@ private void initialize() throws FileNotFoundException, BadLocationException {
         }
       });
     
+    btnNewButton_1.setBounds(101, 11, 89, 23);
+    frmDictionary.getContentPane().add(btnNewButton_1);
+
+    JScrollPane scrollPane = new JScrollPane();
+    scrollPane.setBounds(490, 332, -57, -98);
+    frmDictionary.getContentPane().add(scrollPane);
+   
+    buttonGroup.add(rdbtnNewRadioButton);
+    rdbtnNewRadioButton.setBounds(36, 78, 59, 23);
+    frmDictionary.getContentPane().add(rdbtnNewRadioButton);
+    rdbtnNewRadioButton.setSelected(true);
+
     
+    buttonGroup.add(rdbtnNewRadioButton_1);
+    rdbtnNewRadioButton_1.setBounds(110, 78, 59, 23);
+    frmDictionary.getContentPane().add(rdbtnNewRadioButton_1);
+    rdbtnNewRadioButton_1.addItemListener(new ItemListener() {
