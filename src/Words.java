@@ -38,3 +38,7 @@ public class Words {
     public void setSynonyms(String[] synonyms) {
         this.synonyms = synonyms;
     }
+    
+    public void setAntonyms(String[] antonyms) {
+        this.antonyms = antonyms;
+    }
