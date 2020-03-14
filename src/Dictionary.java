@@ -13,12 +13,17 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultCaret;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 
 import com.google.gson.Gson;
@@ -224,4 +229,31 @@ private void initialize() throws FileNotFoundException, BadLocationException {
     textPane.setBorder(BorderFactory.createCompoundBorder(
         textPane.getBorder(),
             BorderFactory.createEmptyBorder(10, 10 ,10 , 10)));
-     
+
+    Style bigWord = textPane.addStyle("Style", null);
+    Style header = textPane.addStyle("Style", null);
+    StyleConstants.setFontSize(header, 20);
+    StyleConstants.setFontSize(bigWord, 36);
+    StyleConstants.setBold(bigWord, true);
+
+    doc.remove(0, doc.getLength());
+    doc.insertString(doc.getLength(),"Example Word\n" ,bigWord );
+    doc.insertString(doc.getLength(),"\n" , null );
+    doc.insertString(doc.getLength(),"Definitions\n" ,header );
+    doc.insertString(doc.getLength(),"\n" ,null );
+    doc.insertString(doc.getLength(),"1. Example Word (pos) \n\n    Definition of example word\n\n" ,null );
+    doc.insertString(doc.getLength(),"\n" ,null );
+    doc.insertString(doc.getLength(),"Synonyms\n" ,header );
+    doc.insertString(doc.getLength(),"\n1.Synonym " ,null );
+    doc.insertString(doc.getLength(),"\n\n" ,null );
+    doc.insertString(doc.getLength(),"Antonyms\n" ,header );
+    doc.insertString(doc.getLength(),"\n1.Antonym " ,null );
+
+    JScrollPane scrollPane_1 = new JScrollPane();
+    scrollPane_1.setBounds(12, 114, 179, 446);
+    frmDictionary.getContentPane().add(scrollPane_1);
+
+    JList<String> list = new JList<String>();
+    list.addListSelectionListener(new ListSelectionListener() {
+    	
+      
