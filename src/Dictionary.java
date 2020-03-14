@@ -8,6 +8,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.text.BadLocationException;
 
 import com.google.gson.Gson;
 
@@ -89,5 +90,13 @@ public Dictionary() throws FileNotFoundException, BadLocationException {
 	
 }
 
+private void initialize() throws FileNotFoundException, BadLocationException {
+	
+    frmDictionary = new JFrame();
+    frmDictionary.setResizable(false);
+    frmDictionary.setTitle("Dictionary");
+    frmDictionary.setBounds(100, 100, 800, 600);
+    frmDictionary.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frmDictionary.getContentPane().setLayout(null);
         
         
