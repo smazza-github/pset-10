@@ -82,5 +82,12 @@ private static ArrayList<Words> getWordClass() throws FileNotFoundException {
         return listOfWords;
         
   }
+
+public Dictionary() throws FileNotFoundException, BadLocationException {
+	
+	initialize(); 
+	
+}
+
         
         
