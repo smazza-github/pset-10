@@ -547,3 +547,36 @@ private void initialize() throws FileNotFoundException, BadLocationException {
               }
       }
       
+    } catch (FileNotFoundException e) {
+
+      e.printStackTrace();
+      
+    }
+        DefaultListModel<String> DLM = null;
+        
+    try {  
+    	
+        if (!rdbtnNewRadioButton.isSelected()) {
+        	
+            try {
+
+            	DLM = Utils.reverseOrder(getWords());
+            	
+          } catch (FileNotFoundException e2) {
+
+            e2.printStackTrace();
+            
+          }
+
+        } else {
+        	
+          try {
+        	  
+        	  DLM = getWords();
+        	  
+          } catch (FileNotFoundException e1) {
+
+            e1.printStackTrace();
+            
+          }
+        }
