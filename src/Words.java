@@ -34,3 +34,7 @@ public class Words {
     public void setDefinitions(Definitions[] definitions) {
         this.definitions = definitions;
     }
+    
+    public void setSynonyms(String[] synonyms) {
+        this.synonyms = synonyms;
+    }
