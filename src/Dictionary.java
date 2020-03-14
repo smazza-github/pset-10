@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -16,6 +18,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -30,6 +33,7 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class Dictionary {
 	
@@ -392,8 +396,104 @@ private void initialize() throws FileNotFoundException, BadLocationException {
          	  try {
          		  
      			wordList = getWordClass();
+     			
          	  } catch (FileNotFoundException e1) {
 
      			e1.printStackTrace();
      			
          	  }
+         	  
+         	  String[] definitions = definitionInput.split("\\s*,\\s*");
+        	  String[] poss = posInput.split("\\s*,\\s*");
+        	  String[] synonyms = synonymInput.split("\\s*,\\s*");
+        	  String[] antonyms = antonymsInput.split("\\s*,\\s*");
+        	  System.out.println(synonyms.length);
+        	  
+        	  if(definitions.length == poss.length) {
+        		  
+        		  System.out.println("pass");
+        		  Definitions[] deffs = new Definitions[definitions.length];
+        		  
+            	  for (int i = 0; i < definitions.length; i++) {
+            		  
+            		  deffs[i] = new Definitions(definitions[i],poss[i]);
+            		  
+            	  }
+            	  
+            	  if(synonymInput.equals("")) {
+            		  
+
+            		 synonyms = null;
+            		 
+            	  }
+            	  
+            	 if(antonymsInput.equals("")) {
+            		 
+            		antonyms = null;
+            		
+            	  }
+            	 
+            	  Words wordToAdd = new Words(word, deffs, synonyms, antonyms);
+            	  wordList.add(wordToAdd);
+            	  
+            	Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                String classpathDirectory = Utils.getClasspathDir();
+              
+               try (FileWriter writer = new FileWriter(classpathDirectory +"words.json")) {
+            	   
+                        gson.toJson(wordList, writer);
+                        System.out.println("word added");
+                        
+                    } catch (IOException e1) {
+                    	
+                        e1.printStackTrace( );
+                        
+                    }
+               
+               DefaultListModel<String> DLM = null;
+               
+               if (!rdbtnNewRadioButton.isSelected()) {
+            	   
+  			     try {
+  			    	 
+  			     	DLM = Utils.reverseOrder(getWords());
+  			     	
+  			   } catch (FileNotFoundException e2) {
+  				   
+  			     e2.printStackTrace();
+  			   }
+
+  			 } else {
+  				 
+  			   try {
+  				   
+  			 	  DLM = getWords();
+  			 	  
+  			   } catch (FileNotFoundException e1) {
+  				   
+  			     e1.printStackTrace();
+  			     
+  			   }
+  			 }
+               
+               list.setModel(DLM);
+               
+        	  } else {
+        		  
+        		  System.out.println("fail");
+        		  JOptionPane.showMessageDialog(null, "Amount of definitions and parts of speech do not match!");
+        		  
+        	  }
+        	  
+     	  } else {
+     		  
+     		 System.out.println("fail");
+   		  JOptionPane.showMessageDialog(null, "Required field was left empty!");
+   		  
+     	  }
+     	  
+   		cardLayout.show(panel, "defintions");
+   		
+   	}
+   });
+    
