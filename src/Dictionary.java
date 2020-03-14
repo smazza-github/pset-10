@@ -2,6 +2,8 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -15,6 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
@@ -331,10 +334,37 @@ private void initialize() throws FileNotFoundException, BadLocationException {
 
               }
             }
+            
+            
           } catch (FileNotFoundException | BadLocationException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
           }
         }
+      }
+    });
+    
+    scrollPane_1.setViewportView(list);
+
+    DefaultListModel<String> DLM =  getWords();
+
+    list.setModel(DLM);
+    
+    JRadioButton rdbtnNewRadioButton = new JRadioButton("Asc");
+    JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Desc");
+
+    JButton btnNewButton = new JButton("Add");
+    btnNewButton.addActionListener(new ActionListener() {
+
+      public void actionPerformed(ActionEvent e) {
+    	  
+    	  System.out.println("add");
+          cardLayout.show(panel, "addWord"); 
+          textField.setText("");
+          txtDefinitions.setText("");
+          textField_2.setText("");
+          textField_1.setText("");
+          textField_3.setText("");
+          
       }
     });
