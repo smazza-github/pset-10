@@ -156,4 +156,25 @@ private void initialize() throws FileNotFoundException, BadLocationException {
     lblPartOfSpech.setFont(new Font("Tahoma", Font.BOLD, 18));
     lblPartOfSpech.setBounds(336, 130, 157, 20);
     panel_1.add(lblPartOfSpech);
+    
+    JLabel lblSynonyms = new JLabel("Synonyms");
+    lblSynonyms.setFont(new Font("Tahoma", Font.BOLD, 32));
+    lblSynonyms.setBounds(10, 213, 184, 54);
+    panel_1.add(lblSynonyms);
+    
+    textField_1 = new JTextField();
+    textField_1.setToolTipText("synonym");
+    textField_1.setColumns(10);
+    textField_1.setBounds(20, 287, 286, 20);
+    panel_1.add(textField_1);
+    
+    JLabel lblSeperateByComma = new JLabel("Seperate by comma");
+    lblSeperateByComma.setFont(new Font("Tahoma", Font.PLAIN, 12));
+    lblSeperateByComma.setBounds(20, 264, 137, 20);
+    panel_1.add(lblSeperateByComma);
+    
+    JLabel label = new JLabel("Seperate by comma");
+    label.setFont(new Font("Tahoma", Font.PLAIN, 12));
+    label.setBounds(20, 157, 137, 20);
+    panel_1.add(label);
         
