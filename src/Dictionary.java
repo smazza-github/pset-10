@@ -69,5 +69,18 @@ private static ArrayList<Words> getWordClass() throws FileNotFoundException {
 	
         Gson gson = new Gson();
         String classpathDirectory = Utils.getClasspathDir();
+        BufferedReader br = new BufferedReader(new FileReader(classpathDirectory + "words.json"));
+        
+        Words[] words = gson.fromJson(br, Words[].class);
+        ArrayList<Words> listOfWords = new ArrayList<Words>();
+        for (Words word : words) {
+          listOfWords.add(word);
+          
+        }
+       ;
+       
+        return listOfWords;
+        
+  }
         
         
