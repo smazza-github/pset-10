@@ -177,4 +177,16 @@ private void initialize() throws FileNotFoundException, BadLocationException {
     label.setFont(new Font("Tahoma", Font.PLAIN, 12));
     label.setBounds(20, 157, 137, 20);
     panel_1.add(label);
+    
+    JLabel label_1 = new JLabel("Seperate by comma");
+    label_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+    label_1.setBounds(346, 161, 137, 20);
+    panel_1.add(label_1);
+    
+    JLabel label_2 = new JLabel("Seperate by comma");
+    label_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
+    label_2.setBounds(20, 369, 137, 20);
+    panel_1.add(label_2);
+    
+    
         
