@@ -1,9 +1,14 @@
 import java.awt.EventQueue;
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 import javax.swing.ButtonGroup;
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
+import com.google.gson.Gson;
 
 public class Dictionary {
 	
@@ -38,3 +43,12 @@ public class Dictionary {
 		      }
 		    });
 		  }
+
+private static DefaultListModel<String> getWords() throws FileNotFoundException{
+	
+        Gson gson = new Gson();
+        String classpathDirectory = Utils.getClasspathDir();
+        BufferedReader br = new BufferedReader(new FileReader(classpathDirectory + "words.json"));
+        Words[] words = gson.fromJson(br, Words[].class);
+        
+        
