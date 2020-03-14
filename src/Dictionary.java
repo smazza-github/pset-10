@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -497,3 +498,52 @@ private void initialize() throws FileNotFoundException, BadLocationException {
    	}
    });
     
+    JButton btnNewButton_1 = new JButton("Remove");
+    btnNewButton_1.addActionListener(new ActionListener() {
+
+      public void actionPerformed(ActionEvent arg0) {
+    List<String> selectedWords = list.getSelectedValuesList();
+        System.out.println("remove");
+        
+        try {
+        	
+          Boolean wordFound = false;
+      ArrayList<Words> words = getWordClass();
+      ArrayList<Words> wordsToRemove = new ArrayList<Words>();
+      for(String selectedWord : selectedWords) {
+        for (Words word : words) {
+                if(selectedWord.equals(word.getWord())) {
+                  wordsToRemove.add(word);
+                  wordFound = true;
+                }
+            }
+          }
+      
+      if(wordFound) {
+    	  
+    	  int dialogResult = JOptionPane.showConfirmDialog (null, "Are you sure you want to delete the following word(s)\nfrom the ditionary?\n\nThis action cannot be undone.\n\n","Warning",JOptionPane.YES_NO_OPTION);
+    	  
+    	  if(dialogResult == JOptionPane.YES_OPTION){
+    		  
+    		  for (Words word: wordsToRemove) {
+    			  
+    	          words.remove(word);
+    	          
+    	        }
+    	  }
+        
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String classpathDirectory = Utils.getClasspathDir();
+        
+         try (FileWriter writer = new FileWriter(classpathDirectory +"words.json")) {
+        	 
+                  gson.toJson(words, writer);
+                  System.out.println("word removed");
+                  
+              } catch (IOException e) {
+            	  
+                  e.printStackTrace( );
+                  
+              }
+      }
+      
