@@ -30,3 +30,7 @@ public class Words {
     public void setWord(String word) {
         this.word = word;
     }
+    
+    public void setDefinitions(Definitions[] definitions) {
+        this.definitions = definitions;
+    }
