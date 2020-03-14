@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -15,7 +16,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultCaret;
+import javax.swing.text.StyledDocument;
 
 import com.google.gson.Gson;
 
@@ -199,5 +203,25 @@ private void initialize() throws FileNotFoundException, BadLocationException {
     textField_3.setBounds(20, 400, 286, 20);
     panel_1.add(textField_3);
     
+    JLabel lblRequred = new JLabel("* = required");
+    lblRequred.setFont(new Font("Tahoma", Font.PLAIN, 12));
+    lblRequred.setBounds(20, 513, 137, 20);
+    panel_1.add(lblRequred);
     
-        
+    JScrollPane scrollPane_2 = new JScrollPane();
+    panel.add(scrollPane_2, "defintions");
+    
+    CardLayout cardLayout = (CardLayout) panel.getLayout();
+    cardLayout.show(panel, "defintions");
+    
+    JTextPane textPane = new JTextPane();
+    textPane.setEditable(false);
+    scrollPane_2.setViewportView(textPane);
+
+    StyledDocument doc = textPane.getStyledDocument();
+    DefaultCaret caret = (DefaultCaret) textPane.getCaret();
+    caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
+    textPane.setBorder(BorderFactory.createCompoundBorder(
+        textPane.getBorder(),
+            BorderFactory.createEmptyBorder(10, 10 ,10 , 10)));
+     
