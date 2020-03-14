@@ -50,5 +50,13 @@ private static DefaultListModel<String> getWords() throws FileNotFoundException{
         String classpathDirectory = Utils.getClasspathDir();
         BufferedReader br = new BufferedReader(new FileReader(classpathDirectory + "words.json"));
         Words[] words = gson.fromJson(br, Words[].class);
+        System.out.println(words.length + " words added");
+        DefaultListModel<String> listOfWords = new DefaultListModel<String>();
+        for (Words word : words) {
+          listOfWords.addElement(word.getWord().toLowerCase());
+        }
+       ;
+        return  Utils.sortWordsAsc(listOfWords);
+  }
         
         
