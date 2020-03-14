@@ -188,5 +188,16 @@ private void initialize() throws FileNotFoundException, BadLocationException {
     label_2.setBounds(20, 369, 137, 20);
     panel_1.add(label_2);
     
+    JLabel lblAntonyms = new JLabel("Antonyms");
+    lblAntonyms.setFont(new Font("Tahoma", Font.BOLD, 32));
+    lblAntonyms.setBounds(10, 318, 184, 54);
+    panel_1.add(lblAntonyms);
+    
+    textField_3 = new JTextField();
+    textField_3.setToolTipText("antonyms");
+    textField_3.setColumns(10);
+    textField_3.setBounds(20, 400, 286, 20);
+    panel_1.add(textField_3);
+    
     
         
