@@ -1,3 +1,6 @@
+import java.awt.EventQueue;
+import java.io.FileNotFoundException;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
@@ -13,4 +16,25 @@ public class Dictionary {
 	  private JTextField textField_1;
 	  private JTextField textField_3;
 	  
-}
+	  public static void main(String[] args) throws FileNotFoundException {
+		  
+	  }
+		    getWords();
+		    
+		    EventQueue.invokeLater(new Runnable() {
+		    	
+		      public void run() {
+		    	  
+		        try {
+		        	
+		          Dictionay window = new Dictionay();
+		          window.frmDictionary.setVisible(true);
+		          
+		        } catch (Exception e) {
+		        	
+		          e.printStackTrace();
+		          
+		        }
+		      }
+		    }
+		  }
