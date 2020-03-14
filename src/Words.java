@@ -18,3 +18,7 @@ public class Words {
     public Definitions[] getDefinitions() {
         return this.definitions;
     }
+    
+    public String[] getSynonyms() {
+        return this.synonyms;
+    }
