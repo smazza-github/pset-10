@@ -1,3 +1,4 @@
+import java.awt.CardLayout;
 import java.awt.EventQueue;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -7,6 +8,8 @@ import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.text.BadLocationException;
 
@@ -99,4 +102,11 @@ private void initialize() throws FileNotFoundException, BadLocationException {
     frmDictionary.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frmDictionary.getContentPane().setLayout(null);
         
+    JPanel panel = new JPanel();
+    panel.setBounds(207, 11, 566, 549);
+    frmDictionary.getContentPane().add(panel);
+    panel.setLayout(new CardLayout(0, 0));
+    
+    JScrollPane scrollPane_3 = new JScrollPane();
+    panel.add(scrollPane_3, "addWord");
         
