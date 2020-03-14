@@ -707,4 +707,51 @@ private void initialize() throws FileNotFoundException, BadLocationException {
 
             e2.printStackTrace();
           }
+            
+        } else {
+        	
+            try {
+            	
+              words = getWords();
+              
+            } catch (FileNotFoundException e1) {
+       
+              e1.printStackTrace();
+            }
+          }
+        
+          DefaultListModel<String> filtered = new DefaultListModel<String>();
+          for(int i = 0 ; i < words.size(); i++) {
+        	  
+            if((words.get(i).startsWith(searched))) {
+            	
+              System.out.println(words.get(i));
+              filtered.addElement(words.get(i));
+            }
+          }
+          
+          list.setModel(filtered);
+          
+          try {
+        	  
+  			doc.remove(0, doc.getLength());
+  			doc.insertString(doc.getLength(),"Example Word\n" ,bigWord );
+  	        doc.insertString(doc.getLength(),"\n" , null );
+  	        doc.insertString(doc.getLength(),"Definitions\n" ,header );
+  	        doc.insertString(doc.getLength(),"\n" ,null );
+  	        doc.insertString(doc.getLength(),"1. Example Word (pos) \n\n    Definition of example word\n\n" ,null );
+  	        doc.insertString(doc.getLength(),"\n" ,null );
+  	        doc.insertString(doc.getLength(),"Synonyms\n" ,header );
+  	        doc.insertString(doc.getLength(),"\n1.Synonym " ,null );
+  	        doc.insertString(doc.getLength(),"\n\n" ,null );
+  	        doc.insertString(doc.getLength(),"Antonyms\n" ,header );
+  	        doc.insertString(doc.getLength(),"\n1.Antonym " ,null );
+  	        
+  		} catch (BadLocationException e1) {
+  			
+  			e1.printStackTrace();
+  			
+  		}
+        }
+      });
                 
