@@ -648,4 +648,10 @@ private void initialize() throws FileNotFoundException, BadLocationException {
               doc.insertString(doc.getLength(),"\n\n" ,null );
               doc.insertString(doc.getLength(),"Antonyms\n" ,header );
               doc.insertString(doc.getLength(),"\n1.Antonym " ,null );
-    }
+                
+            } catch (FileNotFoundException | BadLocationException e) {
+            	
+                e.printStackTrace();
+                
+              }
+                
