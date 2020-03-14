@@ -309,4 +309,32 @@ private void initialize() throws FileNotFoundException, BadLocationException {
                     synonymCounter++;
                     
                   }
-                }               
+                }   
+                
+                String[] antonyms = word.getAntonyms();
+                
+                if (antonyms != null && antonyms.length != 0) {
+                	
+                  doc.insertString(doc.getLength(),"\n" ,null );
+                  doc.insertString(doc.getLength(),"Antonyms\n" ,header );
+                  doc.insertString(doc.getLength(),"\n" ,null );
+                  
+                  int antonymCounter = 1;
+                  
+                  for(String antonym : antonyms) {
+                	  
+                    doc.insertString(doc.getLength(), antonymCounter + "." + antonym + "\n", null);
+                    antonymCounter++;
+                    
+                  }
+                }
+
+              }
+            }
+          } catch (FileNotFoundException | BadLocationException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+          }
+        }
+      }
+    });
