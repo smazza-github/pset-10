@@ -22,3 +22,7 @@ public class Words {
     public String[] getSynonyms() {
         return this.synonyms;
     }
+    
+    public String[] getAntonyms() {
+        return this.antonyms;
+    }
