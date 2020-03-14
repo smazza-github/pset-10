@@ -55,20 +55,17 @@ public class Dictionary {
 	  
 	  public static void main(String[] args) throws FileNotFoundException {
 		  
-	  }
 		    getWords();
-		    
 		    EventQueue.invokeLater(new Runnable() {
 		    	
 		      public void run() {
 		    	  
 		        try {
 		        	
-		          Dictionay window = new Dictionay();
+		          Dictionary window = new Dictionary();
 		          window.frmDictionary.setVisible(true);
 		          
 		        } catch (Exception e) {
-		        	
 		          e.printStackTrace();
 		          
 		        }
