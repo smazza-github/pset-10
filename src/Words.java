@@ -26,3 +26,7 @@ public class Words {
     public String[] getAntonyms() {
         return this.antonyms;
     }
+    
+    public void setWord(String word) {
+        this.word = word;
+    }
