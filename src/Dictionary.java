@@ -368,3 +368,32 @@ private void initialize() throws FileNotFoundException, BadLocationException {
           
       }
     });
+    
+    btnNewButton.setBounds(2, 11, 89, 23);
+    frmDictionary.getContentPane().add(btnNewButton);
+
+    btnNewButton_2.addActionListener(new ActionListener() {
+    	
+    	public void actionPerformed(ActionEvent e) {   
+    		
+    	  String word = textField.getText().toLowerCase();
+      	  String definitionInput = txtDefinitions.getText().toLowerCase();
+      	  String posInput = textField_2.getText().toLowerCase();
+      	  String synonymInput = textField_1.getText().toLowerCase();
+      	  String antonymsInput = textField_3.getText().toLowerCase();
+      	  
+      	  word = word.trim();
+      	  
+      	  if(!word.equals("") && !definitionInput.equals("") && !posInput.equals("")) {
+      		  
+      		System.out.println(word);
+      		 ArrayList<Words> wordList = new ArrayList<Words>();
+      		 
+         	  try {
+         		  
+     			wordList = getWordClass();
+         	  } catch (FileNotFoundException e1) {
+
+     			e1.printStackTrace();
+     			
+         	  }
