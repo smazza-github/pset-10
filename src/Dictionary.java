@@ -293,3 +293,20 @@ private void initialize() throws FileNotFoundException, BadLocationException {
                   definitionCounter++;
                   
                 }
+                
+                String[] synonyms = word.getSynonyms();
+                
+                if(synonyms != null && synonyms.length != 0) {
+                	
+                  doc.insertString(doc.getLength(),"Synonyms\n" ,header );
+                  doc.insertString(doc.getLength(),"\n" ,null );
+                  
+                  int synonymCounter = 1;
+                  
+                  for(String synonym : synonyms) {
+
+                    doc.insertString(doc.getLength(), synonymCounter + "." + synonym + "\n", null);
+                    synonymCounter++;
+                    
+                  }
+                }               
