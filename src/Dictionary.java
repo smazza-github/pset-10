@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -683,4 +685,26 @@ private void initialize() throws FileNotFoundException, BadLocationException {
               }
           }
       });
+    
+    txtSearch = new JTextField();
+    txtSearch.addKeyListener(new KeyAdapter() {
+    	
+      @Override
+      
+      public void keyReleased(KeyEvent e) {
+    	  
+        String searched = txtSearch.getText().toLowerCase();
+        System.out.println(searched);
+        DefaultListModel<String> words = new DefaultListModel<String>();
+        
+        if (!rdbtnNewRadioButton.isSelected()) {
+        	
+            try {
+            	
+              words = Utils.reverseOrder(getWords());
+              
+          } catch (FileNotFoundException e2) {
+
+            e2.printStackTrace();
+          }
                 
