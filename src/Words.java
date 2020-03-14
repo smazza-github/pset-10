@@ -14,3 +14,7 @@ public class Words {
     public String getWord() {
         return this.word;
     }
+    
+    public Definitions[] getDefinitions() {
+        return this.definitions;
+    }
