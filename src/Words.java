@@ -10,3 +10,7 @@ public class Words {
         this.synonyms = synonyms;
         this.antonyms = antonyms;
     }
+
+    public String getWord() {
+        return this.word;
+    }
