@@ -2,6 +2,7 @@ import java.awt.EventQueue;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
@@ -44,7 +45,7 @@ public class Dictionary {
 		    });
 		  }
 
-private static DefaultListModel<String> getWords() throws FileNotFoundException{
+private static DefaultListModel<String> getWords() throws FileNotFoundException {
 	
         Gson gson = new Gson();
         String classpathDirectory = Utils.getClasspathDir();
@@ -63,5 +64,10 @@ private static DefaultListModel<String> getWords() throws FileNotFoundException{
         return  Utils.sortWordsAsc(listOfWords);
         
   }
+
+private static ArrayList<Words> getWordClass() throws FileNotFoundException {
+	
+        Gson gson = new Gson();
+        String classpathDirectory = Utils.getClasspathDir();
         
         
